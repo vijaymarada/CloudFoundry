@@ -1,14 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -35,5 +37,18 @@ namespace WebAPI.Controllers
             })
             .ToArray();
         }
-    }
+
+        [HttpGet("systemdetails")]
+        public string GetSystemDetails()
+        {
+            dynamic response = new ExpandoObject();
+            response.HostName = Environment.MachineName;
+            response.LocalIPAddress = Request.HttpContext.Connection.LocalIpAddress.ToString();
+            response.LocalPort = Request.HttpContext.Connection.LocalPort.ToString();
+            response.RemoteIpAddress = Request.HttpContext.Connection.RemoteIpAddress.ToString();
+            response.RemotePort = Request.HttpContext.Connection.RemotePort.ToString();
+            response.RequestHeaders = Request.HttpContext.Request.Headers;
+            response.EnvVariables = Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Process);
+            return JsonConvert.SerializeObject(response);
+        }
 }
