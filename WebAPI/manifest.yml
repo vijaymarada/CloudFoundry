@@ -1,0 +1,9 @@
+﻿---
+applications:
+- name: core-webapi
+  #random-route: true
+  routes:
+   - route: apiapp.cfapps.ap21.hana.ondemand.com 
+  memory: 512M
+  env:
+    CACHE_NUGET_PACKAGES: false
