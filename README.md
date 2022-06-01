@@ -10,14 +10,16 @@ applications:
   memory: 512M
   env:
     CACHE_NUGET_PACKAGES: false
-
+```
 ### Deploy the app
-In root foder execute beloe command
+  In root foder execute below command
+
 ```
 >cf push
 ```
-![image](https://user-images.githubusercontent.com/49226342/171393203-6139db28-d448-4ab0-bdce-0dbaf3e88fc1.png)
+Running application
 
+![image](https://user-images.githubusercontent.com/49226342/171393388-73d21ad3-316d-46a7-b79e-81bca6eec3da.png)
 
 ```
 ### Create a route:
