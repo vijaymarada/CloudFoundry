@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("random")]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
@@ -51,4 +51,5 @@ namespace WebAPI.Controllers
             response.EnvVariables = Environment.GetEnvironmentVariables(EnvironmentVariableTarget.Process);
             return JsonConvert.SerializeObject(response);
         }
+    }
 }
