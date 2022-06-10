@@ -11,8 +11,13 @@ applications:
   env:
     CACHE_NUGET_PACKAGES: false
 ```
+
+### Login Cloud Foundry Space
+![cfLogin](https://user-images.githubusercontent.com/49226342/173043151-8b4fd0ff-0507-4fc6-9305-2e6516affb9f.JPG)
+
+
 ### Deploy the app
-  In root foder execute below command
+  In root folder of youe app where manifest file resides, execute below command
 
 ```
 >cf push
